@@ -2,6 +2,9 @@
   $censor = $_POST['bad_word'];
   $text = $_POST['text'];
   $censored_text = str_replace($censor,'***', $text);
+  $length_str_full = strlen($text);
+  $length_str_censored = strlen($censored_text);
+
 ?>
 
 <!DOCTYPE html>
@@ -17,8 +20,8 @@
   <div class="container">
     <h1 class="text-center">Censuratore automatizzato</h1>
     <p>Hai chiesto di censurare la parola "<?php echo $censor ?>" dal seguente testo:</p>
-    <p>"<?php echo $text ?>"</p>
-    <p>Ecco il tuo testo censurato: <?php echo $censored_text ?> </p>
+    <p>"<?php echo $text ?>" che è lungo <?php echo $length_str_full ?> caratteri.</p>
+    <p>Ecco il tuo testo censurato: <?php echo $censored_text ?>. Dopo questa modifica la lunghezza del paragrafo è di: <?php echo $length_str_censored ?> caratteri.</p>
   </div>
 </body>
 </html>
